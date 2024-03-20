@@ -1,39 +1,45 @@
-document.getElementById("encryptButton").addEventListener("click", function() {
-    var inputText = document.getElementById("inputText").value;
-    var encryptedText = encryptText(inputText);
-    document.getElementById("outputText").value = encryptedText;
-});
+// encriptador.js
 
-document.getElementById("decryptButton").addEventListener("click", function() {
-    var inputText = document.getElementById("inputText").value;
-    var decryptedText = decryptText(inputText);
-    document.getElementById("outputText").value = decryptedText;
-});
+// Función para encriptar el texto
+function encriptarTexto() {
+    var textoOriginal = document.getElementById("textoOriginal").value;
+    var textoEncriptado = "";
 
-document.getElementById("clearButton").addEventListener("click", function() {
-    document.getElementById("inputText").value = ""; // Limpiar el área de entrada de texto
-    document.getElementById("outputText").value = ""; // Limpiar el área de salida de texto
-});
+    for (var i = 0; i < textoOriginal.length; i++) {
+        var charCode = textoOriginal.charCodeAt(i);
 
+        // Aplicar el cifrado César con un desplazamiento de 3 para encriptar
+        if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
+            charCode = (charCode >= 65 && charCode <= 90) ? ((charCode - 65 + 3) % 26) + 65 : ((charCode - 97 + 3) % 26) + 97;
+        }
 
-function encryptText(text) {
-    
-    
-    var result = "";
-    for (var i = 0; i < text.length; i++) {
-        var charCode = text.charCodeAt(i);
-        result += String.fromCharCode(charCode + 1);
+        textoEncriptado += String.fromCharCode(charCode);
     }
-    return result;
+
+    document.getElementById("resultado").value = textoEncriptado;
 }
 
-function decryptText(text) {
-    
-    
-    var result = "";
-    for (var i = 0; i < text.length; i++) {
-        var charCode = text.charCodeAt(i);
-        result += String.fromCharCode(charCode - 1);
+// Función para desencriptar el texto
+function desencriptarTexto() {
+    var textoEncriptado = document.getElementById("resultado").value;
+    var textoDesencriptado = "";
+
+    for (var i = 0; i < textoEncriptado.length; i++) {
+        var charCode = textoEncriptado.charCodeAt(i);
+
+        // Aplicar el cifrado César con un desplazamiento de -3 para desencriptar
+        if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
+            charCode = (charCode >= 65 && charCode <= 90) ? ((charCode - 65 - 3 + 26) % 26) + 65 : ((charCode - 97 - 3 + 26) % 26) + 97;
+        }
+
+        textoDesencriptado += String.fromCharCode(charCode);
     }
-    return result;
+
+    document.getElementById("resultado").value = textoDesencriptado;
+}
+
+// Función para limpiar el texto
+function limpiarTexto() {
+    document.getElementById("textoOriginal").value = "";
+    document.getElementById("resultado").value = "";
 }

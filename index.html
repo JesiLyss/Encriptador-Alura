@@ -1,41 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello There!!</title>
+    <title>Alura Encriptador</title>
     <link rel="stylesheet" href="estilo.css">
+    <script src="node.js" defer></script>
 </head>
-
 <body>
     <div class="container">
-
-        <div class="header">
-            <img src="https://app.aluracursos.com/assets/images/logos/logo-aluraespanhol.svg" alt="Logo de Alura" class="logo">
-            
-        </div>
-
-        <h1>Galactic Cipher</h1>
-        <textarea id="inputText" placeholder="Introduce el texto"></textarea>
-        <div class="buttons">
-            <button id="encryptButton">Encriptar</button>
-            <button id="decryptButton">Desencriptar</button>
-            <button id="clearButton">Limpiar</button>
-
-            
-        
-            
-            
-        
-            
-        </div>
-        <textarea id="outputText" placeholder="Texto encriptado o desencriptado" readonly></textarea>
+        <h2>Galactic Cipher</h2>
+        <label for="textoOriginal">Texto:</label><br>
+        <textarea id="textoOriginal" rows="4" cols="50"></textarea><br><br>
+        <button onclick="encriptarTexto()">Encriptar</button>
+        <button onclick="desencriptarTexto()">Desencriptar</button>
+        <button onclick="limpiarTexto()">Limpiar</button><br><br>
+        <label for="resultado">Resultado:</label><br>
+        <textarea id="resultado" rows="4" cols="50" readonly></textarea><br><br>
     </div>
-    <script src="node.js"></script>
-
-    <footer class="footer">
-        <p>Todos los derechos reservados. Copyright © 2024 Jesica Antonella Gomez</p>
-    </footer>
 </body>
-
- </html>
+</html>
