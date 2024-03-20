@@ -66,3 +66,12 @@ button:hover {
         margin-bottom: 10px; 
     }
 }
+
+.logo {
+    width: 33px; /* Ajusta el tamaño del logo */
+    
+    margin-left: 20px; /* Añade un margen derecho para separar el logo del título */
+}
+
+
+
