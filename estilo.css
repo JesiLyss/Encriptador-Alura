@@ -60,7 +60,7 @@
   
   .text-input {
     border-radius: 0.5em;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(139, 88, 206, 0.2);
     display: block;
     padding: 0.3em;
     width: 100%;
@@ -75,7 +75,7 @@
     height: 8%;
     bottom: 0;
     position:fixed;
-    background-color: rgb(20, 20, 20);
+    background-color: rgb(121, 69, 218);
    
   }
   .pie{
