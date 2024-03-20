@@ -11,7 +11,8 @@ document.getElementById("decryptButton").addEventListener("click", function() {
 });
 
 document.getElementById("clearButton").addEventListener("click", function() {
-    document.getElementById("outputText").value = ""; // Limpia el contenido de la salida de texto encriptado
+    document.getElementById("inputText").value = ""; // Limpiar el área de entrada de texto
+    document.getElementById("outputText").value = ""; // Limpiar el área de salida de texto
 });
 
 
