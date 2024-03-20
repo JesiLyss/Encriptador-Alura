@@ -1,45 +1,77 @@
-// encriptador.js
-
-// Función para encriptar el texto
-function encriptarTexto() {
-    var textoOriginal = document.getElementById("textoOriginal").value;
-    var textoEncriptado = "";
-
-    for (var i = 0; i < textoOriginal.length; i++) {
-        var charCode = textoOriginal.charCodeAt(i);
-
-        // Aplicar el cifrado César con un desplazamiento de 3 para encriptar
-        if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
-            charCode = (charCode >= 65 && charCode <= 90) ? ((charCode - 65 + 3) % 26) + 65 : ((charCode - 97 + 3) % 26) + 97;
-        }
-
-        textoEncriptado += String.fromCharCode(charCode);
+function validarTexto (texto) {
+    
+    let caracteres = /[~!@#$%^&*()_+|}{[\]\\\/?><:"`;.,áéíóúàèìòù']/g;
+    let mayusculas = /[A-Z]/g;  
+    let vacio="";  
+      
+    if(texto.match(mayusculas)||texto.match(caracteres)){
+        alert("No se permiten caracteres especiales ni mayusculas");
+        return true; 
+    }else if(texto==vacio){
+       alert("Ingrese un mensaje para encriptar");
+        return true;
+   }else {
+        return false;
     }
-
-    document.getElementById("resultado").value = textoEncriptado;
 }
 
-// Función para desencriptar el texto
-function desencriptarTexto() {
-    var textoEncriptado = document.getElementById("resultado").value;
-    var textoDesencriptado = "";
 
-    for (var i = 0; i < textoEncriptado.length; i++) {
-        var charCode = textoEncriptado.charCodeAt(i);
+let btnEncriptar = document.querySelector("#btn-encriptar");
 
-        // Aplicar el cifrado César con un desplazamiento de -3 para desencriptar
-        if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
-            charCode = (charCode >= 65 && charCode <= 90) ? ((charCode - 65 - 3 + 26) % 26) + 65 : ((charCode - 97 - 3 + 26) % 26) + 97;
-        }
-
-        textoDesencriptado += String.fromCharCode(charCode);
+btnEncriptar.addEventListener("click",function ()  {
+    let textInput = document.querySelector("#input-texto").value;
+    let textoIngresado = textInput;
+   
+    if (validarTexto (textoIngresado) == false) {       
+        let Encriptado = encriptar(textoIngresado);
+        let resultado = document.querySelector("#msg");
+        resultado.value = Encriptado;
+    } else {        
+        textInput = "";     
+     
     }
+               
+})
 
-    document.getElementById("resultado").value = textoDesencriptado;
+
+const reglas = { "e":"enter","i":"imes","a":"ai","o":"ober","u":"ufat"};
+
+function encriptar (textoIngresado) {
+    let Encriptado = "";
+    for (const obj in reglas) {
+        Encriptado = textoIngresado.replaceAll(obj,reglas[obj]);
+        textoIngresado = Encriptado;        
+    }
+    return (Encriptado);
 }
 
-// Función para limpiar el texto
-function limpiarTexto() {
-    document.getElementById("textoOriginal").value = "";
-    document.getElementById("resultado").value = "";
+
+let btnCopiar = document.querySelector("#btn-copy");
+
+btnCopiar.addEventListener("click",function(){        
+    let Copiado = document.querySelector("#msg").value;
+    navigator.clipboard.writeText(Copiado);
+    document.querySelector("#input-texto").value="";
+
+});
+
+let btnDesencriptar = document.querySelector("#btn-desencriptar");
+
+btnDesencriptar.addEventListener("click", function(){
+    let textoIngresado = document.querySelector("#input-texto").value;
+    let Desencriptado = desencriptar(textoIngresado);
+
+    let resultado = document.querySelector("#msg");
+    resultado.value = Desencriptado;
+})
+
+
+
+function desencriptar (textoIngresado) {
+    let Encriptado = "";
+    for (const obj in reglas) {
+        Encriptado = textoIngresado.replaceAll(reglas[obj],obj);
+        textoIngresado = Encriptado;        
+    }
+    return (Encriptado);
 }

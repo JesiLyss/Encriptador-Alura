@@ -1,31 +1,41 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alura Encriptador</title>
-    <link rel="stylesheet" href="estilo.css">
-    <script src="node.js" defer></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge I:Encriptador</title>
+  <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <div class="container">
+  <div class="sup"></div>
+  <h1 class="titulo">Encriptador</h1> 
+  <br>
+  <br>
+  
+   
+  <main class="main">
+    <section class="form box">
+      <form action="">
+        <label for="input-texto" class="lab">Solo letras minúsculas, sin acento</label>
+        <input class="text-input" type="text" name="input-texto" id="input-texto" placeholder="Ingrese el texto aqui">
+        <input class="btn" type="button" value="Encriptar!" id="btn-encriptar">
+        <input class="btn" type="button" value="Desencriptar!" id="btn-desencriptar">
+      </form>
+    </section>
+  
+    <section class="msg box">
+      <label for="input-texto" class="lab">Mensaje Encriptado</label>
+      <input class="text-input" type="text" id="msg"></input>
+      <input class="btn" type="button" value="Copiar" id="btn-copy">
+    </section>
+  </main>
+  
+  <footer>   
+    <p class="pie">Copyright Jesica Gomez 2024</p>
+       
+</footer>
 
-        <img src="https://app.aluracursos.com/assets/images/logos/logo-aluraespanhol.svg" alt="Logo de Alura" class="logo">
-            
-        <h2>Galactic Cipher</h2>
-        <label for="textoOriginal">Texto:</label><br>
-        <textarea id="textoOriginal" rows="4" cols="50"></textarea><br><br>
-        <button onclick="encriptarTexto()">Encriptar</button>
-        <button onclick="desencriptarTexto()">Desencriptar</button>
-        <button onclick="limpiarTexto()">Limpiar</button><br><br>
-        <label for="resultado">Resultado:</label><br>
-        <textarea id="resultado" rows="4" cols="50" readonly></textarea><br><br>
-    </div>
-    
-<footer>
-        &copy; 2024 Jesica Antonella Gomez
-    </footer>
-
-    
+  <script src="node.js"></script>
 </body>
 </html>
