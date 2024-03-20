@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://images.wallpapersden.com/image/download/darth-vader-entry-star-wars-hd_bWlraWqUmZqaraWkpJRmbmdlrWZlbWU.jpg'); 
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 10px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.buttons {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 90%; 
+    }
+
+    textarea {
+        height: 80px; 
+    }
+
+    .buttons {
+        flex-direction: column; 
+    }
+
+    button {
+        margin-right: 0; 
+        margin-bottom: 10px; 
+    }
+}
